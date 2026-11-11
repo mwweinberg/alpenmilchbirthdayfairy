@@ -1,0 +1,33 @@
+---
+layout: base.njk
+title: The Alpenmilch Birthday Fairy
+description: Answers to your questions about Germany's celebrated Alpenmilch Birthday Fairy.
+---
+<header class="hero">
+  <img class="hero__image" src="/img/cosumes.png" alt="The protectors of Germany's colorful folk ways at their recent convention" width="1448" height="1086">
+</header>
+
+<main class="content">
+  <section class="intro">
+    <h1>The Alpenmilch Birthday Fairy</h1>
+    <p>We, the protectors of Germany's colorful folk ways, welcome you to this website that we set up to answer questions about the Alpenmilch Birthday Fairy.</p>
+    <p>If you are here, you probably have questions about Germany's celebrated Alpenmilch birthday fairy. The FAQs below should clear things up.</p>
+  </section>
+
+  <section class="faq" aria-labelledby="faq-heading">
+    <h2 id="faq-heading">Frequently Asked Questions</h2>
+    {% for item in faq %}
+    <div class="faq__item">
+      <h3 class="faq__question">
+        <button class="faq__toggle" type="button" aria-expanded="false" aria-controls="faq-answer-{{ loop.index }}" id="faq-question-{{ loop.index }}">
+          <span>{{ item.question }}</span>
+          <span class="faq__icon" aria-hidden="true"></span>
+        </button>
+      </h3>
+      <div class="faq__answer" id="faq-answer-{{ loop.index }}" role="region" aria-labelledby="faq-question-{{ loop.index }}" hidden>
+        {{ item.answer | safe }}
+      </div>
+    </div>
+    {% endfor %}
+  </section>
+</main>

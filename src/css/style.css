@@ -1,0 +1,116 @@
+:root {
+  --bg: #fdfaf4;
+  --text: #2b2521;
+  --muted: #6b625b;
+  --accent: #b5362f;
+  --rule: #e4dccf;
+  --max: 42rem;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: Georgia, "Times New Roman", serif;
+  line-height: 1.6;
+}
+
+.hero {
+  width: 100%;
+  max-height: 60vh;
+  overflow: hidden;
+  background: #d9d2c5;
+}
+
+.hero__image {
+  display: block;
+  width: 100%;
+  height: 60vh;
+  object-fit: cover;
+  object-position: center 25%;
+}
+
+.content {
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: 2rem 1rem 4rem;
+}
+
+h1 {
+  font-size: clamp(1.9rem, 5vw, 2.75rem);
+  line-height: 1.15;
+  margin: 0 0 1rem;
+}
+
+h2 {
+  font-size: 1.5rem;
+  margin: 2.5rem 0 1rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid var(--rule);
+}
+
+.faq__item { border-bottom: 1px solid var(--rule); }
+
+.faq__question {
+  margin: 0;
+  font-size: 1.1rem;
+}
+
+.faq__toggle {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem 0;
+  background: none;
+  border: 0;
+  font: inherit;
+  color: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+
+.faq__toggle:hover,
+.faq__toggle:focus-visible { color: var(--accent); }
+
+.faq__toggle:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 4px;
+}
+
+.faq__icon {
+  flex: 0 0 auto;
+  width: 1.5rem;
+  height: 1.5rem;
+  position: relative;
+}
+
+.faq__icon::before,
+.faq__icon::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 1rem;
+  height: 2px;
+  background: currentColor;
+  transform: translate(-50%, -50%);
+  transition: transform 0.2s ease;
+}
+
+.faq__icon::after { transform: translate(-50%, -50%) rotate(90deg); }
+
+.faq__toggle[aria-expanded="true"] .faq__icon::after {
+  transform: translate(-50%, -50%) rotate(0deg);
+}
+
+.faq__answer {
+  padding: 0 0 1.25rem;
+  color: var(--muted);
+}
+
+.faq__answer p, .faq__answer ol { margin: 0 0 0.75rem; }
+.faq__answer ol { padding-left: 1.5rem; }

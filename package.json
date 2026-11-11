@@ -1,0 +1,14 @@
+{
+  "name": "alpenmilchbirthdayfairy",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Landing page for the Alpenmilch Birthday Fairy",
+  "scripts": {
+    "start": "eleventy --serve",
+    "build": "eleventy"
+  },
+  "devDependencies": {
+    "@11ty/eleventy": "^3.1.2"
+  }
+}
